@@ -1,0 +1,53 @@
+plugins {
+    id("java")
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+}
+
+group = 'gg.hazard.spotify'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url = uri("https://repo.codemc.io/repository/maven-releases/") }
+    maven { url = uri("https://repo.codemc.io/repository/maven-snapshots/") }
+    maven { url = uri("https://repo.dmulloy2.net/repository/public/") }
+    maven { url 'https://jitpack.io' }
+    maven {
+        url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+    }
+    maven { url = "https://repo.aikar.co/content/groups/aikar/" }
+    maven {
+        name = 'lunarclient'
+        url = 'https://repo.lunarclient.dev'
+    }
+}
+
+dependencies {
+    implementation("org.jetbrains:annotations:26.0.2")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    compileOnly(files("libs/cSpigot.jar"))
+    compileOnly(files("libs/QueryAPI.jar"))
+    compileOnly(files("libs/mQueue.jar"))
+    compileOnly(files("libs/Holiday-API.jar"))
+    implementation 'fr.mrmicky:fastboard:2.1.5'
+    compileOnly('net.dmulloy2:ProtocolLib:5.3.0')
+    compileOnly("com.github.retrooper:packetevents-spigot:2.9.3")
+    implementation 'com.github.Carleslc.Simple-YAML:Simple-Yaml:1.8.4'
+    compileOnly 'me.clip:placeholderapi:2.11.6'
+    implementation "co.aikar:acf-bukkit:0.5.1-SNAPSHOT"
+    compileOnly 'com.lunarclient:apollo-api:1.1.8'
+}
+
+shadowJar {
+    relocate 'fr.mrmicky.fastboard', 'gg.hazard.spotify.fastboard'
+    relocate 'co.aikar.commands', 'gg.hazard.spotify.acf'
+    relocate 'co.aikar.locales', 'gg.hazard.spotify.locales'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+    withJavadocJar()
+    withSourcesJar()
+}

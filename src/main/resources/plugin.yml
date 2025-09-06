@@ -1,0 +1,4 @@
+name: Spotify
+version: '1.0-SNAPSHOT'
+main: gg.hazard.spotify.hHub
+author: mario
