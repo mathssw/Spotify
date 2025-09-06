@@ -62,6 +62,8 @@ public final class hHub extends JavaPlugin {
 
         BukkitCommandManager commandManager = new BukkitCommandManager(this);
         commandManager.registerCommand(new CoreCommand());
+        
+        registerCosmeticsCommands(commandManager);
     }
 
     @Override
@@ -75,5 +77,13 @@ public final class hHub extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ButtonListener(), this);
         getServer().getPluginManager().registerEvents(new FunListener(), this);
         getServer().getPluginManager().registerEvents(new LunarClientNametagProvider(), this);
+        getServer().getPluginManager().registerEvents(new com.maths.spotify.cosmetics.listeners.CosmeticsListener(), this);
+    }
+    
+    private void registerCosmeticsCommands(BukkitCommandManager commandManager) {
+        commandManager.registerCommand(new com.maths.spotify.cosmetics.CosmeticsCommand());
+        commandManager.registerCommand(new com.maths.spotify.cosmetics.pets.PetCommand());
+        commandManager.registerCommand(new com.maths.spotify.cosmetics.particles.ParticleCommand());
+        commandManager.registerCommand(new com.maths.spotify.cosmetics.armor.ArmorCommand());
     }
 }
