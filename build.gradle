@@ -3,7 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
-group = 'gg.hazard.spotify'
+group = 'com.maths.spotify'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -35,14 +35,14 @@ dependencies {
     compileOnly("com.github.retrooper:packetevents-spigot:2.9.3")
     implementation 'com.github.Carleslc.Simple-YAML:Simple-Yaml:1.8.4'
     compileOnly 'me.clip:placeholderapi:2.11.6'
-    implementation "co.aikar:acf-bukkit:0.5.1-SNAPSHOT"
+    implementation "co.aikar:acf-bukkit:0.5.0-SNAPSHOT"
     compileOnly 'com.lunarclient:apollo-api:1.1.8'
 }
 
 shadowJar {
-    relocate 'fr.mrmicky.fastboard', 'gg.hazard.spotify.fastboard'
-    relocate 'co.aikar.commands', 'gg.hazard.spotify.acf'
-    relocate 'co.aikar.locales', 'gg.hazard.spotify.locales'
+    relocate 'fr.mrmicky.fastboard', 'com.maths.spotify.fastboard'
+    relocate 'co.aikar.commands', 'com.maths.spotify.acf'
+    relocate 'co.aikar.locales', 'com.maths.spotify.locales'
 }
 
 java {
