@@ -3,7 +3,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
-group = 'gg.hazard.spotify'
+group = 'com.maths.spotify'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -40,9 +40,9 @@ dependencies {
 }
 
 shadowJar {
-    relocate 'fr.mrmicky.fastboard', 'gg.hazard.spotify.fastboard'
-    relocate 'co.aikar.commands', 'gg.hazard.spotify.acf'
-    relocate 'co.aikar.locales', 'gg.hazard.spotify.locales'
+    relocate 'fr.mrmicky.fastboard', 'com.maths.spotify.fastboard'
+    relocate 'co.aikar.commands', 'com.maths.spotify.acf'
+    relocate 'co.aikar.locales', 'com.maths.spotify.locales'
 }
 
 java {
